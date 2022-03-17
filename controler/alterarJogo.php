@@ -7,10 +7,10 @@ include_once("../model/jogoModel.php");
 extract($_REQUEST,EXTR_OVERWRITE);
 
 
-if(inserirJogos($conn,$nomejogo,$valorjogo,$generojogo,$qtdjogo,$datalancamentojogo,$studiojogo,$codigojogo)){
-echo("O perfil foram cadastro com sucesso !!!");
+if(inserirJogos($conn,$nomejogo,$valorjogo,$generojogo,$qtdjogo,$datalancamentojogo,$studiojogo)){
+echo("O jogo foi alterado com sucesso !!!");
 }else{
-echo("O perfil esta incompleto, tente novamente !!!");
+echo("A alteração está incompleta, tente novamente !!!");
 
 }
 

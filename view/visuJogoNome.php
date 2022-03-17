@@ -56,7 +56,7 @@ include_once("../model/jogoModel.php");
             <td>
             <form action="../view/FormJogo.php" method="post">
 
-                <input type="hidden" value="<?= $emailUsuarios["idusu"] ?>" name="codigousu">
+                <input type="hidden" value="<?= $nomeJogo["idjogo"] ?>" name="codigojogo">
                 <button type="submit" class="bnt btn-primary">Alterar</button>
 
               </form>

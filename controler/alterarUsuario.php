@@ -6,9 +6,9 @@ include_once("../view/header.php");
 extract($_REQUEST, EXTR_OVERWRITE);
 
 if(alterarUsuario($conn,$codigousu,$nomeusu,$emailusu,$foneusu,$cpfusu,$tipousu,$cepusu,$numusu,$compusu)){
-echo("Dados alterados com sucesso.");
+echo("Dados alterados com sucesso");
 }else{
-echo("Dados não alterados");
+echo("Dados não alterados, tente novamente !!!");
 }
 
 include_once("../view/footer.php");

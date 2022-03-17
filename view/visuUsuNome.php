@@ -36,33 +36,33 @@ include_once("../model/usuarioModel.php");
       $nomeusu = isset($_POST["nomeusu"]) ? $_POST["nomeusu"] : "";
       if ($nomeusu) {
         $dado = visuUsuarioNome($conn, $nomeusu);
-        
+
         foreach ($dado as $nomeUsuarios) :
       ?>
-        <tr>
-          <th scope="row"><?= $nomeUsuarios["idusu"] ?></th>
-          <td><?= $nomeUsuarios["nomeusu"] ?></td>
-          <td><?= $nomeUsuarios["emailusu"] ?></td>
-          <td><?= $nomeUsuarios["foneusu"] ?></td>
-          <td>
-          <form action="../view/alterarForm.php" method="post">
+          <tr>
+            <th scope="row"><?= $nomeUsuarios["idusu"] ?></th>
+            <td><?= $nomeUsuarios["nomeusu"] ?></td>
+            <td><?= $nomeUsuarios["emailusu"] ?></td>
+            <td><?= $nomeUsuarios["foneusu"] ?></td>
+            <td>
+              <form action="../view/alterarForm.php" method="post">
 
-            <input type="hidden" value="<?= $nomeUsuarios["idusu"] ?>" name="idusu">
-            <button type="submit" class="bnt btn-primary">Alterar</button>
+                <input type="hidden" value="<?= $nomeUsuarios["idusu"] ?>" name="codigousu">
+                <button type="submit" class="bnt btn-primary">Alterar</button>
 
-          </form>
+              </form>
 
-          </td>
+            </td>
 
-          <td>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-              Delete
-            </button>
-          </td>
-        </tr>
+            <td>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                Delete
+              </button>
+            </td>
+          </tr>
       <?php
- endforeach;
+        endforeach;
       }
       ?>
       <!-- Modal -->

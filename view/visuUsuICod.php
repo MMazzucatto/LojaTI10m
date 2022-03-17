@@ -35,33 +35,34 @@ include_once("../model/usuarioModel.php");
       <?php
       $codigousu = isset($_POST["codigousu"]) ? $_POST["codigousu"] : "";
       if ($codigousu) {
-        $codigoUsuario = visuUsuarioCodigo($conn, $codigousu);
-        
+        $dado = visuUsuarioCodigo($conn, $codigousu);
+        if ($dado) {
+
       ?>
-        <tr>
-          <th scope="row"><?= $codigoUsuario["idusu"]; ?></th>
-          <td><?= $codigoUsuario["nomeusu"] ?></td>
-          <td><?= $codigoUsuario["emailusu"] ?></td>
-          <td><?= $codigoUsuario["foneusu"] ?></td>
-          <td>
-            <form action="../view/alterarForm.php" method="post">
+          <tr>
+            <th scope="row"><?= $dado["idusu"]; ?></th>
+            <td><?= $dado["nomeusu"] ?></td>
+            <td><?= $dado["emailusu"] ?></td>
+            <td><?= $dado["foneusu"] ?></td>
+            <td>
+              <form action="../view/alterarForm.php" method="post">
 
-              <input type="hidden" value="<?= $codigoUsuario["idusu"] ?>" name="codigousu">
-              <button type="submit" class="bnt btn-primary">Alterar</button>
+                <input type="hidden" value="<?= $dado["idusu"] ?>" name="codigousu">
+                <button type="submit" class="bnt btn-primary">Alterar</button>
 
-            </form>
+              </form>
 
-          </td>
+            </td>
 
-          <td>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-              Delete
-            </button>
-          </td>
-        </tr>
+            <td>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                Delete
+              </button>
+            </td>
+          </tr>
       <?php
-
+        }
       }
       ?>
       <!-- Modal -->
